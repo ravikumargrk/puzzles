@@ -15,3 +15,7 @@ int main(){
     cout <<printbits(11)<<endl;
     return 0;
 }
+// OUTPUT:
+// @ravikumargrk ➜ /workspaces/puzzles/numbersInBinaryForm/C++ (main) $ g++ main.cpp
+// @ravikumargrk ➜ /workspaces/puzzles/numbersInBinaryForm/C++ (main) $ ./a.out
+// 0000000000000000000000000001011

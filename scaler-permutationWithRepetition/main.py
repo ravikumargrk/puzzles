@@ -2,46 +2,24 @@
 # one obtains a coupon it is equally likely to be any one of the types. 
 # Compute the expected number of different types that are contained in the set for 10 coupons.
 
-def getComb(terms, nums):
-    new = []
-    for t in terms:
-        for i in nums:
-            new.append(t+[i])
-    return new
-    
-def getAll(dim):
-    nums = range(1, 10-dim+2)
-    if dim == 1:
-        return [[i] for i in range(1,11)]
-    else:
-        terms = [[i] for i in range(1,11)]
-        for i in range(dim-1):
-            terms = getComb(terms, nums)
-    return terms
-
-def getComb10(r):
-    terms = getAll(r)
-    terms10 = []
-    for t in terms:
-        if sum(t) == 10:
-            terms10.append(t)
-    return terms10
-
+from header import split
 import math
 
-def P(r):
-    pre = math.comb(20, r)*math.factorial(10)/(20**10)
-    s = 0
-    for t in getComb10(r):
+# number of ways to permute objects in a sample
+# containing "sample_size" number of "sample_types" different types of objects 
+# selected from infinite number of "max_types" different types of objects
+def N(max_types, sample_size, sample_types):
+    select = math.comb(max_types, sample_types)
+    perms = 0
+    for t in split(sample_size, sample_types):
         p = 1
         for e in t:
             p = p * math.factorial(e)
-        s += 1/p 
-    return pre*s
+        perms += math.factorial(10)/p 
+    return select*perms
 
-# print(getComb10(10))
-
-probs = [(r,P(r)) for r in range(1,11)]
+n_sample = (20**10)
+probs = [(r, N(20, 10, r)/n_sample) for r in range(1,11)]
 
 print('r\tP(r)')
 exp = 0

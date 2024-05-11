@@ -1,4 +1,14 @@
 # FFMPEG Guide for Me
+
+## Installation
+Windows:
+```
+winget install ffmpeg
+```
+Linux:
+```
+sudo apt install ffmpeg
+```
 ## MKV to iPhone mp4:
 For iPhone convert to H.264+AAC
 ```

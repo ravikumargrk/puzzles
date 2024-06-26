@@ -18,6 +18,8 @@ class HelloWorld(Resource):
         data = request.get_data()
         dt = datetime.now().isoformat().replace(':','-')
         path = request.headers.get('filename')
+        if not path:
+            path = dt
         with open(path, 'wb') as f:
             f.write(data)
             f.close()

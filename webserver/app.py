@@ -5,8 +5,6 @@ from datetime import datetime
 import os
 os.chdir(r'/workspaces/puzzles/webserver/data/')
 
-import subprocess
-
 app = Flask(__name__)
 api = Api(app)
 
